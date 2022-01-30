@@ -1,0 +1,5 @@
+numpy==1.19.2
+MANO @ git+https://github.com/otaheri/MANO@9c6365fa3fac24f7703c9b3af5c5149e47cef87f
+psbody-mesh @ git+git://github.com/MPI-IS/mesh.git@49e70425cf373ec5269917012bda2944215c5ccd
+omegaconf==2.1.0.dev24
+scipy
