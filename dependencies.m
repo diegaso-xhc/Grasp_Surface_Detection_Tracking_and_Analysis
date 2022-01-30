@@ -7,3 +7,4 @@ load('markers_pos.mat') % Positions of the markers on the objects (recorded offl
 load('Objects_meshes.mat') % Mesh representations of all of the objects (20.000 triangles per object)
 load('hand_mks_labels.mat') % Load labels for the hand markers that are used on our vicon tracking setup
 % This is a test for git
+% This is another test to check everything works fine
