@@ -107,8 +107,13 @@ def ik_fit(weights,
 
 def fitting(cfg):
 
-    #bs_betas = [[-0.8675575631077455, -1.985191135449365, -0.9723222402368097, 1.1384598646344966, 0.24191992675565302, 0.060562562539139546, 2.043613380943857, 0.19748757787490984, 1.4086727118611564, -0.04802949170658211]]
-    bs_betas = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+    bs_betas = []
+    bs_betas.append(cfg.betas_in)
+    print(bs_betas)
+    # bs_betas = [[-0.8675575631077455, -1.985191135449365, -0.9723222402368097, 1.1384598646344966, 0.24191992675565302, 0.060562562539139546, 2.043613380943857, 0.19748757787490984, 1.4086727118611564, -0.04802949170658211]]
+    # bs_betas = [[-3.8675575631077455, 3.985191135449365, 4.9723222402368097, 1.1384598646344966, 0.24191992675565302, 0.060562562539139546, 2.043613380943857, 0.19748757787490984, 1.4086727118611564, -0.04802949170658211]]
+    # bs_betas = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
     if cfg.visualize:
         mvs = MeshViewers(window_width=2000, window_height=800, shape=[1, 2])
@@ -145,7 +150,8 @@ def fitting(cfg):
     }
     n_frames = marker_locs.shape[0]
     # for fidx in range(n_frames):
-    for fidx in range(2):
+    cnt = 0
+    for fidx in range(cfg.fr_in, cfg.fr_end + 1):
 
         start = time.time()
 
@@ -176,14 +182,16 @@ def fitting(cfg):
             rhand_data['full_pose'].append(to_np(rh_output.full_pose))
             rhand_data['markers'].append(frame_markers[not_nan])
             rhand_data['labels'].append(verts_ids[not_nan])
-        if fidx == 0:
+        if cnt == 0:
             output_vertices = []
             output_faces = []
         output_vertices.append(rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000)
         output_faces.append(rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray))
         print( 'frame %d / %d,  took %f seconds' % (fidx, bs ,time.time() - start))
-    io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact_surface_process/verts_opt_V2_nob.mat', {'output_vertices': output_vertices})
-    io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact_surface_process/faces_opt_V2_nob.mat', {'output_faces': output_faces})
+
+        cnt += 1
+    io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact-level human manipulation/verts_opt_test.mat', {'output_vertices': output_vertices})
+    io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact-level human manipulation/faces_opt_test.mat', {'output_faces': output_faces})
 
     rhand_data = concat_data(rhand_data)
     save_path = cfg.sequence_data.replace('.mat', '_fit.npy')
@@ -250,10 +258,18 @@ if __name__== '__main__':
     parser.add_argument('--sequencedata', required = True, type=str,
                         help='The path to the complete data .mat file')
 
+    parser.add_argument('--betas', required = True, nargs = '+', type=float,
+                        help='Betas vector to change hand shape')
+
+    parser.add_argument('--fr_in', required = True, type=int,
+                        help='Intial Frame of interest')
+
+    parser.add_argument('--fr_end', required = True, type=int,
+                        help='Final Frame of interest')
+
     args = parser.parse_args()
 
     cfg = {
-
         'sequence_data': args.sequencedata,
         'visualize' : True,
         #'optimize_betas' : True,
@@ -267,8 +283,16 @@ if __name__== '__main__':
         'marker_labels': '/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/fitting_MANO/grasping_TUM/data/markers.mat',
 
         'verbose': False,
+
+        'betas_in': args.betas,
+        'fr_in': args.fr_in,
+        'fr_end': args.fr_end,
     }
 
     cfg = OmegaConf.create(cfg)
+    """print(args.sequencedata)
+    print(args.betas[1])
+    print(args.fr_in)
+    print(args.fr_end)"""
     fitting(cfg)
 

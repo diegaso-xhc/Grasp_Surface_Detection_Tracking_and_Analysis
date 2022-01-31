@@ -22,121 +22,21 @@ y_track = track_object(t_obj, mark_ind, T); % We change the bases from the objec
 n_frames = cs_st.n_smp; % Number of frames of the experiment
 n_mks = length(mks); % Number of markers used for the human hand tracking
 get_frames_opt(n_frames, mks, n_mks, cs_st, n_hand, 'test_data'); % Creates the required frame file to be used by the python optimization algorithm
-
-
-
 system(strcat('python3.7 ./Fit_MANO/opt_MANO_MoCap.py --sequencedata', ' ./Trials/', 'test_data.mat')); % Calls an optimization algorithm in Python which uses the MANO hand model and runs the previously 
                                                                                                         % recorded marker sequence
 th = 10; % Threshold for the distance between meshes which we have set to detect the contact surfaces
 [yf_cell, yf_cell_nob, vert] = calculate_contacts(th, Y, ob, y_track); % Calculate the contact surfaces
-h = plot_results(v, obj_track, y_cs, 1)
+h = plot_results(vert, y_track, yf_cell, 1);
 
 
+betas = rand(1,10)*5;
+get_
 
 
-
-
-
-
-figure;
-h1Plot = plot3(NaN,NaN,NaN,'.', 'Color', [0.9290 0.6940 0.1250], 'MarkerSize', 0.1); % Hand plot
-hold on
-h2Plot = plot3(NaN,NaN,NaN, '.', 'Color', [0.32, 0.64, 0.74]); % Hand plot
-h3Plot = plot3(NaN,NaN,NaN,'.k','MarkerSize',40); % Hand plot
-h4Plot_ax = quiver3(NaN,NaN,NaN,NaN,NaN,NaN, 'b');
-h5Plot = plot3(NaN,NaN,NaN,'.r', 'Color', [200 20 60]/255, 'MarkerSize',10); % Hand plot
-set(gcf, 'Position',  [10, 10, 1300, 1000])
-h1Plot.Color(4) = 0.1;
-axis('equal')
-pbaspect([1 1 1])
-xlim([-100 1400])
-ylim([-100 1400])
-zlim([-150 500])
-xlabel('X')
-ylabel('Y')
-zlabel('Z')
-view(65,25)
-grid off
-set(gca,'XColor', 'none','YColor','none','ZColor','none')
-
-
-set(gca,'color','none');
-warning('off','MATLAB:triangulation:PtsNotInTriWarnId')
-
-
-
-%% Plot results again
-
-figure;
-% h1Plot = plot3(NaN,NaN,NaN, '.', 'Color', [0.7290 0.6940 0.150, 0.1], 'MarkerSize', 10); % Hand plot
-h1Plot = plot3(NaN,NaN,NaN, '.', 'Color', [201, 151, 137]/255, 'MarkerSize', 10); % Hand plot
-
-% h1Plot = scatter3(NaN, NaN, NaN, 'MarkerEdgeAlpha', 0.2)
-
-hold on
-h2Plot = plot3(NaN,NaN,NaN, '.', 'MarkerSize', 15, 'Color', [0.32, 0.64, 0.74]); % Hand plot
-
-
-h3Plot = plot3(NaN,NaN,NaN,'.k','MarkerSize',40); % Hand plot
-h4Plot = plot3(NaN,NaN,NaN, '.', 'Color', [100, 151, 137]/255, 'MarkerSize', 10); % Hand plot
-h5Plot = plot3(NaN,NaN,NaN,'.', 'Color', [255, 0, 0]/255, 'MarkerSize',20); % Hand plot
-h6Plot = plot3(NaN,NaN,NaN,'.', 'Color', [0, 255, 0]/255, 'MarkerSize',15); % Hand plot
-
-set(gcf, 'Position',  [10, 10, 1300, 1000])
-set(gca,'XColor', 'none','YColor','none','ZColor','none')
-set(gca,'color','none');
-% h1Plot.Color(4) = 0.1;
-
-axis('equal')
-pbaspect([1 1 1])
-xlim([200 600])
-ylim([800 1200])
-zlim([-50 400])
-xlabel('X')
-ylabel('Y')
-zlabel('Z')
-view(-50,10)
-grid off
-set(gca,'XColor', 'none','YColor','none','ZColor','none')
-set(gca,'color','none')
-
-for i = 1: 1
-    set(h1Plot,'XData',vert{i}(:,1),'YData',vert{i}(:,2), 'ZData', vert{i}(:,3)); % Hand Plot
-    hold on    
-    set(h2Plot,'XData',y_track{i}(:,1),'YData',y_track{i}(:,2), 'ZData', y_track{i}(:,3)); % Object Plot
-    num_CS = length(yf_cell{i}{1}{1}); % Number of identified contact surfaces
-    tmp_points = [];
-    for j = 1: num_CS
-       tmp_points = [tmp_points; yf_cell{i}{1}{1}{j}.p]; % Collecting all of the contact points in a single nx3 array        
-    end
-    try 
-        set(h5Plot,'XData',tmp_points(:, 1),'YData',tmp_points(:, 2), 'ZData', tmp_points(:, 3));
-    catch
-        set(h5Plot,'XData',0,'YData',0, 'ZData',0);
-    end
-    
-    % This is without betas
-%     set(h4Plot,'XData',vert_nob{i}(:,1),'YData',vert_nob{i}(:,2), 'ZData', vert_nob{i}(:,3)); % Hand Plot
-    num_CS = length(yf_cell_nob{i}{1}{1}); % Number of identified contact surfaces
-    tmp_points_2 = [];
-    for j = 1: num_CS
-       tmp_points_2 = [tmp_points_2; yf_cell_nob{i}{1}{1}{j}.p]; % Collecting all of the contact points in a single nx3 array        
-    end
-    try 
-%         set(h6Plot,'XData',tmp_points_2(:, 1),'YData',tmp_points_2(:, 2), 'ZData', tmp_points_2(:, 3));
-    catch
-%         set(h6Plot,'XData',0,'YData',0, 'ZData',0);
-    end
-    %%%%%%%%
-    
-    
-    title(sprintf('Frame N: %d',i))
-    hold off
-    pause(0.002)
-end
-% face_exp = faces{650};
-% vert_exp = vert{650};
-% save('data_mesh_coars.mat', 'face_exp', 'vert_exp')
+system(strcat('python3.7 ./Fit_MANO/opt_MANO_MoCap.py --sequencedata', ' ./Trials/', 'test_data.mat',...
+                                                    ' --betas', ' 1.4 2.25 -3.45',...
+                                                    ' --fr_in', ' 5',...
+                                                    ' --fr_end', ' 100'))
 
 %%
 load('Cylinder_wb_frame650.mat')
@@ -350,6 +250,78 @@ end
 %     pause(0.002)
 % end
 
+%% Plot results again
+
+% figure;
+% % h1Plot = plot3(NaN,NaN,NaN, '.', 'Color', [0.7290 0.6940 0.150, 0.1], 'MarkerSize', 10); % Hand plot
+% h1Plot = plot3(NaN,NaN,NaN, '.', 'Color', [201, 151, 137]/255, 'MarkerSize', 10); % Hand plot
+% 
+% % h1Plot = scatter3(NaN, NaN, NaN, 'MarkerEdgeAlpha', 0.2)
+% 
+% hold on
+% h2Plot = plot3(NaN,NaN,NaN, '.', 'MarkerSize', 15, 'Color', [0.32, 0.64, 0.74]); % Hand plot
+% 
+% 
+% h3Plot = plot3(NaN,NaN,NaN,'.k','MarkerSize',40); % Hand plot
+% h4Plot = plot3(NaN,NaN,NaN, '.', 'Color', [100, 151, 137]/255, 'MarkerSize', 10); % Hand plot
+% h5Plot = plot3(NaN,NaN,NaN,'.', 'Color', [255, 0, 0]/255, 'MarkerSize',20); % Hand plot
+% h6Plot = plot3(NaN,NaN,NaN,'.', 'Color', [0, 255, 0]/255, 'MarkerSize',15); % Hand plot
+% 
+% set(gcf, 'Position',  [10, 10, 1300, 1000])
+% set(gca,'XColor', 'none','YColor','none','ZColor','none')
+% set(gca,'color','none');
+% % h1Plot.Color(4) = 0.1;
+% 
+% axis('equal')
+% pbaspect([1 1 1])
+% xlim([200 600])
+% ylim([800 1200])
+% zlim([-50 400])
+% xlabel('X')
+% ylabel('Y')
+% zlabel('Z')
+% view(-50,10)
+% grid off
+% set(gca,'XColor', 'none','YColor','none','ZColor','none')
+% set(gca,'color','none')
+
+% for i = 1: 1
+%     set(h1Plot,'XData',vert{i}(:,1),'YData',vert{i}(:,2), 'ZData', vert{i}(:,3)); % Hand Plot
+%     hold on    
+%     set(h2Plot,'XData',y_track{i}(:,1),'YData',y_track{i}(:,2), 'ZData', y_track{i}(:,3)); % Object Plot
+%     num_CS = length(yf_cell{i}{1}{1}); % Number of identified contact surfaces
+%     tmp_points = [];
+%     for j = 1: num_CS
+%        tmp_points = [tmp_points; yf_cell{i}{1}{1}{j}.p]; % Collecting all of the contact points in a single nx3 array        
+%     end
+%     try 
+%         set(h5Plot,'XData',tmp_points(:, 1),'YData',tmp_points(:, 2), 'ZData', tmp_points(:, 3));
+%     catch
+%         set(h5Plot,'XData',0,'YData',0, 'ZData',0);
+%     end
+%     
+%     % This is without betas
+% %     set(h4Plot,'XData',vert_nob{i}(:,1),'YData',vert_nob{i}(:,2), 'ZData', vert_nob{i}(:,3)); % Hand Plot
+%     num_CS = length(yf_cell_nob{i}{1}{1}); % Number of identified contact surfaces
+%     tmp_points_2 = [];
+%     for j = 1: num_CS
+%        tmp_points_2 = [tmp_points_2; yf_cell_nob{i}{1}{1}{j}.p]; % Collecting all of the contact points in a single nx3 array        
+%     end
+%     try 
+% %         set(h6Plot,'XData',tmp_points_2(:, 1),'YData',tmp_points_2(:, 2), 'ZData', tmp_points_2(:, 3));
+%     catch
+% %         set(h6Plot,'XData',0,'YData',0, 'ZData',0);
+%     end
+%     %%%%%%%%
+%     
+%     
+%     title(sprintf('Frame N: %d',i))
+%     hold off
+%     pause(0.002)
+% end
+% face_exp = faces{650};
+% vert_exp = vert{650};
+% save('data_mesh_coars.mat', 'face_exp', 'vert_exp')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

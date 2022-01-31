@@ -1,4 +1,4 @@
-function h = plot_results(v, obj_track, y_cs, fr_i)
+function h = plot_results(vert_py, obj_track, y_cs, fr_i)
 % This function plots the recorded contact surface interaction, including
 % the contact surfaces. Each frame and contact surface can be individually
 % accessed via the frames parameters fr_i and fr_end.
@@ -31,8 +31,9 @@ grid off
 set(gca,'XColor', 'none','YColor','none','ZColor','none')
 set(gca,'color','none')
 
-for i = 1: length(y_cs)
-    set(pl1,'XData',v{i}(:,1),'YData',v{i}(:,2), 'ZData', v{i}(:,3)); % Hand Plot
+for i = 1: length(vert_py)
+    i
+    set(pl1,'XData',vert_py{i}(:,1),'YData',vert_py{i}(:,2), 'ZData', vert_py{i}(:,3)); % Hand Plot
     hold on    
     set(pl2,'XData',obj_track{i}(:,1),'YData',obj_track{i}(:,2), 'ZData', obj_track{i}(:,3)); % Object Plot
     num_CS = length(y_cs{i}{1}{1}); % Number of identified contact surfaces
@@ -47,7 +48,7 @@ for i = 1: length(y_cs)
     end       
     title(sprintf('Frame N: %d', fr_i + i - 1))
     hold off
-    pause(0.002)
+    pause(0.1)
 end
 
 h = gcf; % Returns the handle properties of the current figure
