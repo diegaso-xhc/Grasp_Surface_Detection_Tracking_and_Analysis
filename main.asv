@@ -29,7 +29,7 @@ system(strcat('python3.7 ./Fit_MANO/opt_MANO_MoCap.py --sequencedata', ' ./Trial
                                                                                                         % recorded marker sequence
 th = 10; % Threshold for the distance between meshes which we have set to detect the contact surfaces
 [yf_cell, yf_cell_nob, vert] = calculate_contacts(th, Y, ob, y_track); % Calculate the contact surfaces
-h = plot_results(vert, y_track, yf_cell, 1)
+h = plot_results(v, obj_track, y_cs, 1)
 
 
 
