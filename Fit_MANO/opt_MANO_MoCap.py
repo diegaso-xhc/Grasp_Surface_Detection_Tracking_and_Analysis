@@ -34,8 +34,8 @@ def vis_hand(frame, mvs):
 
         rh_mocap_np_opt = rh_out.vertices[:,label_ids].detach().cpu().numpy().reshape(-1, 3)
 
-        r_spheres = points_to_spheres(rh_mocap_np, radius=0.002, color = np.array((0., 0., 1.)))  # blue
-        r_spheres_opt = points_to_spheres(rh_mocap_np_opt, radius=0.002, color = np.array((1., 0., 0.)))  # red
+        r_spheres = points_to_spheres(rh_mocap_np, radius=0.002, color = np.array((0., 0.5, 0.)))  # blue
+        r_spheres_opt = points_to_spheres(rh_mocap_np_opt, radius=0.002, color = np.array((0., 0., 0.5)))  # red
 
         ##### hand skeleton
         # hand_skeleton_r = Lines(rh_mocap_np, hand_skeleton_e, vc = np.array((1., 1., 0.)))
@@ -45,7 +45,7 @@ def vis_hand(frame, mvs):
         line_v_idxs_r = np.arange(len(rh_mocap_np))
         line_vs_r = np.vstack([rh_mocap_np_opt, rh_mocap_np])
         line_es_r = np.array(list(zip(line_v_idxs_r, line_v_idxs_r + len(rh_mocap_np))))
-        lines_r = Lines(line_vs_r, line_es_r, vc=np.array((0., 1., 0.)))
+        lines_r = Lines(line_vs_r, line_es_r, vc=np.array((1, 0., 0.)))
 
         # message = ' -- %s' % (' | '.join(['%s = %2.2e' % (k, np.sum(v)) for k, v in opt_objs.iteritems()]))
         # mvs[0][0].set_titlebar(message)
@@ -183,22 +183,26 @@ def fitting(cfg):
             rhand_data['markers'].append(frame_markers[not_nan])
             rhand_data['labels'].append(verts_ids[not_nan])
         if cnt == 0:
-            output_vertices = []
-            output_faces = []
-        output_vertices.append(rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000)
-        output_faces.append(rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray))
+            out_v = []
+            out_f = []
+        out_v.append(rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000)
+        out_f.append(rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray))
         print( 'frame %d / %d,  took %f seconds' % (fidx, bs ,time.time() - start))
 
         cnt += 1
-    io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact-level human manipulation/verts_opt_test.mat', {'output_vertices': output_vertices})
-    io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact-level human manipulation/faces_opt_test.mat', {'output_faces': output_faces})
+    #io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact-level human manipulation/verts_opt_test.mat', {'output_vertices': output_vertices})
+    #io.savemat('/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/Contact-level human manipulation/faces_opt_test.mat', {'output_faces': output_faces})
+    #io.savemat('./verts_opt.mat', {'output_vertices': out_v})
+    #io.savemat('./faces_opt.mat', {'output_faces': out_f})
+    io.savemat(cfg.vert_name, {'out_v': out_v})
+    io.savemat(cfg.face_name, {'out_f': out_f})
 
     rhand_data = concat_data(rhand_data)
     save_path = cfg.sequence_data.replace('.mat', '_fit.npy')
     np.save(save_path, rhand_data)
     if cfg.visualize:
         mvs[0][0].close()
-    print( 'finito!')
+    print( 'Python script successfully finished!')
 
 def parms_for_torch(rhm,
                     rh_mocap,
@@ -258,6 +262,12 @@ if __name__== '__main__':
     parser.add_argument('--sequencedata', required = True, type=str,
                         help='The path to the complete data .mat file')
 
+    parser.add_argument('--vert_name', required = True, type=str,
+                        help='The name of mat file containing the resulting vertices after optimization')
+
+    parser.add_argument('--face_name', required = True, type=str,
+                        help='The name of mat file containing the resulting faces after optimization')
+
     parser.add_argument('--betas', required = True, nargs = '+', type=float,
                         help='Betas vector to change hand shape')
 
@@ -273,26 +283,25 @@ if __name__== '__main__':
         'sequence_data': args.sequencedata,
         'visualize' : True,
         #'optimize_betas' : True,
-        'optimize_betas' : False,
+        'optimize_betas' : False, # his allows external control of the betas vector (i.e. shape of the hand model)
         'n_pca_comps' : 45,
 
-        'lhm_path' : '/home/diego/Desktop/Diego_MSRM/Research/Experiments/GrabNet/models/mano/MANO_LEFT.pkl',
-        'rhm_path' : '/home/diego/Desktop/Diego_MSRM/Research/Experiments/GrabNet/models/mano/MANO_RIGHT.pkl',
+        'lhm_path' : './Fit_MANO/mano/MANO_LEFT.pkl',
+        'rhm_path' : './Fit_MANO/mano/MANO_RIGHT.pkl',
 
-        'marker_settings' : '/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/fitting_MANO/grasping_TUM/config/markers_setting.json',
-        'marker_labels': '/home/diego/Desktop/Diego_MSRM/Research/Experiments/Framework_Contact_Surface_detection/fitting_MANO/grasping_TUM/data/markers.mat',
+        'marker_settings' : './Fit_MANO/config/markers_setting.json',
+        'marker_labels': './Fit_MANO/data/markers.mat',
 
         'verbose': False,
 
         'betas_in': args.betas,
         'fr_in': args.fr_in,
         'fr_end': args.fr_end,
+
+        'vert_name': args.vert_name,
+        'face_name': args.face_name
     }
 
     cfg = OmegaConf.create(cfg)
-    """print(args.sequencedata)
-    print(args.betas[1])
-    print(args.fr_in)
-    print(args.fr_end)"""
     fitting(cfg)
 

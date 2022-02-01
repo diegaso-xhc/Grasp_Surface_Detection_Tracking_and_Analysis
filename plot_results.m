@@ -1,4 +1,4 @@
-function h = plot_results(vert_py, obj_track, y_cs, fr_i)
+function h = plot_results(vert_py, faces_py, obj_track, y_cs, fr_i)
 % This function plots the recorded contact surface interaction, including
 % the contact surfaces. Each frame and contact surface can be individually
 % accessed via the frames parameters fr_i and fr_end.
@@ -10,9 +10,14 @@ function h = plot_results(vert_py, obj_track, y_cs, fr_i)
 % embedded in the length of the other inputs
 
 figure;
-pl1 = plot3(NaN,NaN,NaN, '.', 'Color', [201, 151, 137]/255, 'MarkerSize', 10); % Plots the vertices of the hand meshes
+pl1 = plot3(NaN,NaN,NaN, '.', 'Color', [0, 0, 255]/255, 'MarkerSize', 5); % Plots the vertices of the hand meshes
 hold on
-pl2 = plot3(NaN,NaN,NaN, '.', 'MarkerSize', 15, 'Color', [0.32, 0.64, 0.74]); % Plots the object's trajectory
+pl1_mesh = handle(trimesh(triangulation(double(faces_py{1} + 1), vert_py{1}))); % Plot the hand as a mesh
+pl1_mesh.EdgeColor = [201, 151, 137]/255;        
+pl1_mesh.FaceAlpha = 0.4;
+pl1_mesh.EdgeAlpha = 0.5;
+
+pl2 = plot3(NaN,NaN,NaN, '.', 'MarkerSize', 1, 'Color', [0.32, 0.64, 0.74]); % Plots the object's trajectory
 pl3 = plot3(NaN,NaN,NaN,'.', 'Color', [255, 0, 0]/255, 'MarkerSize',20); % Plots the contact surfaces
 
 set(gcf, 'Position',  [10, 10, 1300, 1000])
@@ -20,21 +25,21 @@ set(gca,'XColor', 'none','YColor','none','ZColor','none')
 set(gca,'color','none');
 axis('equal')
 pbaspect([1 1 1])
-xlim([-300 600])
-ylim([-200 1200])
+xlim([0 600])
+ylim([600 1100])
 zlim([-50 400])
 xlabel('X')
 ylabel('Y')
 zlabel('Z')
-view(-50,10)
+view(-80,65)
 grid off
 set(gca,'XColor', 'none','YColor','none','ZColor','none')
 set(gca,'color','none')
 
-for i = 1: length(vert_py)
-    i
+for i = 1: length(vert_py)    
     set(pl1,'XData',vert_py{i}(:,1),'YData',vert_py{i}(:,2), 'ZData', vert_py{i}(:,3)); % Hand Plot
     hold on    
+    set(pl1_mesh, 'vertices', vert_py{i})
     set(pl2,'XData',obj_track{i}(:,1),'YData',obj_track{i}(:,2), 'ZData', obj_track{i}(:,3)); % Object Plot
     num_CS = length(y_cs{i}{1}{1}); % Number of identified contact surfaces
     tmp_p = [];
@@ -48,8 +53,7 @@ for i = 1: length(vert_py)
     end       
     title(sprintf('Frame N: %d', fr_i + i - 1))
     hold off
-    pause(0.1)
+    pause(0.01)
 end
-
 h = gcf; % Returns the handle properties of the current figure
 end

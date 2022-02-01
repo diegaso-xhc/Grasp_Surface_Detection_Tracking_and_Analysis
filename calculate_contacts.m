@@ -4,7 +4,7 @@ object = {};
 hand = {};
 yf_cell = {};
 y_cell = {};
-
+warning('off', 'MATLAB:triangulation:PtsNotInTriWarnId');
 cnt = 0;
 
 for i = 1: length(vert_py)
@@ -14,7 +14,7 @@ for i = 1: length(vert_py)
     [yf y] = getContactSurfaces(object, hand, th, 'near');
     yf_cell{cnt} = yf;
     y_cell{cnt} = y;
-    cnt
+    disp(['frame: ', num2str(i)])
 end
 
 % load('verts_opt_V2_nob.mat')
