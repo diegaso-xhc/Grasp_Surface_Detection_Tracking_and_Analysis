@@ -24,7 +24,7 @@ and here
 
 
 <p align="center">
-   <img src="/Visualizations/vis_1.png" width="360" />
+   <img src="/Visualizations/vis_1.png" width="700" />
 </p>
 
 <p align="center">
