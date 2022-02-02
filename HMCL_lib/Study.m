@@ -66,7 +66,8 @@ classdef Study
                     end
                     pause(0.001)
                 end
-            end
+                title(sprintf('Frame: %d',t))
+            end            
         end
         function plot_traj_sub(obj, sub)
             % This function plots the movement of a given subject of the
