@@ -15,7 +15,7 @@ git commit
 
 ![This is an image](/Visualizations/vis_1.png)
 ![This is an image](/Visualizations/grasp_wine_glass.gif) ![This is an image](/Visualizations/grasp_cup.gif)
-<img src = "/Visualizations/grasp_wine_glass.gif" width="410"> <img src = "/Visualizations/grasp_cup.gif" width="700">
+<img src = "/Visualizations/grasp_wine_glass.gif" width="410"> <img src = "/Visualizations/grasp_cup.gif" width="650">
 
 
 
