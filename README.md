@@ -1,5 +1,7 @@
 # Contact-level-human-manipulation
 
+# Overview of the repostitory
+
 This repository contains algorithms to better analyze human hand-object manipulation interactions
 
 Here I intend to not only show an overview of the algorithms, but also show off a little bit.
@@ -22,12 +24,14 @@ and here
 -->
 
 
+# Examples of hand-object contact level human manipulation
+
 
 <p align="center">
    <img src="/Visualizations/vis_1.png" width="850" />
 </p>
 <p align="center">
-  <img src="/Visualizations/grasp_cylinder.png" width="850" />  
+  <img src="/Visualizations/grasp_cylinder.png" width="650" />  
 </p>
 
 <p align="center">
