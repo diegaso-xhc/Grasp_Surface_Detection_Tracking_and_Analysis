@@ -26,6 +26,9 @@ and here
 <p align="center">
    <img src="/Visualizations/vis_1.png" width="850" />
 </p>
+<p align="center">
+  <img src="grasp_cylinder.png" width="850" />  
+</p>
 
 <p align="center">
   <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
