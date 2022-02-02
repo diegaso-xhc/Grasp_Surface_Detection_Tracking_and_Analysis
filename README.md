@@ -18,7 +18,7 @@ git commit
 <img src = "/Visualizations/grasp_wine_glass.gif" width="400"> <img src = "/Visualizations/grasp_cup.gif" width="570">
 
 <p align="center">
-  <img src="/Visualizations/grasp_wine_glass.gif" width="400" />
+  <img src="/Visualizations/grasp_wine_glass.gif" width="350" />
   <img src="/Visualizations/grasp_cup.gif" width="600" />   
 </p>
 
