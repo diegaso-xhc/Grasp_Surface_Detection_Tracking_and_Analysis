@@ -27,7 +27,7 @@ and here
    <img src="/Visualizations/vis_1.png" width="850" />
 </p>
 <p align="center">
-  <img src="grasp_cylinder.png" width="850" />  
+  <img src="/grasp_cylinder.png" width="850" />  
 </p>
 
 <p align="center">
