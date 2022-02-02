@@ -4,3 +4,6 @@ This repository contains algorithms to better analyze human hand-object manipula
 Here I intend to not only show an overview of the algorithms, but also show off a little bit.
 
 I also want to learn how to show off using github. This will help me in the future for my future projects and career.
+
+
+❮img src= "visualizations/vis_1.png" ❯
