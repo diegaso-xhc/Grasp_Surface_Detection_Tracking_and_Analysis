@@ -15,4 +15,4 @@ git add
 git commit
 ```
 
-
+![This is an image](/Visualizations/vis_1.png)
