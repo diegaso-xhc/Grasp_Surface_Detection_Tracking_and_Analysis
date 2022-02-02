@@ -16,6 +16,6 @@ git commit
 ```
 
 ![This is an image](/Visualizations/vis_1.png)
-![This is an image](/Visualizations/vidgif_1.gif)
+![This is an image](/Visualizations/grasp_wine_glass.gif)
 
 holaaaa
