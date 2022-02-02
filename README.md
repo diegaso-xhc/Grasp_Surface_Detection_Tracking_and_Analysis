@@ -19,7 +19,7 @@ git commit
 
 <p align="center">
   <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
-  <img src="/Visualizations/grasp_cup.gif" width="599" />   
+  <img src="/Visualizations/grasp_cup.gif" width="600" />   
 </p>
 
 
