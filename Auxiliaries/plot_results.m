@@ -31,7 +31,7 @@ zlim([-50 400])
 xlabel('X')
 ylabel('Y')
 zlabel('Z')
-view(-80,65)
+view(-80,15)
 grid off
 set(gca,'XColor', 'none','YColor','none','ZColor','none')
 set(gca,'color','none')
