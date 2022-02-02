@@ -24,8 +24,9 @@ n_mks = length(mks); % Number of markers used for the human hand tracking
 name_data_to_py = 'data_to_opt';
 get_frames_opt(n_frames, mks, n_mks, cs_st, n_hand, name_data_to_py); % Creates the required frame file to be used by the python optimization algorithm
 betas = [0.4394211849484578, 1.5718488752572914, 0.4441326581811165, -3.184784177810678, -2.0533222423773667, -2.7747463926925033, 0.888224485138984, 1.7561999647492048, 4, 0.9774567444995015];
-fr_in = 1660;
-fr_end = 1700;
+% betas = [0.4394211849484578, 1.5718488752572914, 0.4441326581811165, -3.184784177810678, -2.0533222423773667, -2.7747463926925033, 0.888224485138984, 1.7561999647492048, 4, 0.9774567444995015]*-4;
+fr_in = 1429;
+fr_end = 1430;
 [betas_str, fr_in_str, fr_end_str] = get_variable_str(betas, fr_in, fr_end);
 vert_name = './out_vert.mat';
 face_name = './out_face.mat';
