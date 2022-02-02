@@ -12,7 +12,7 @@ function h = plot_results(vert_py, faces_py, obj_track, y_cs, fr_i)
 figure;
 pl1 = plot3(NaN,NaN,NaN, '.', 'Color', [0, 0, 255]/255, 'MarkerSize', 5); % Plots the vertices of the hand meshes
 hold on
-pl1_mesh = handle(trimesh(triangulation(double(faces_py{1} + 1), vert_py{1}))); % Plot the hand as a mesh
+% pl1_mesh = handle(trimesh(triangulation(double(faces_py{1} + 1), vert_py{1}))); % Plot the hand as a mesh
 pl1_mesh.EdgeColor = [201, 151, 137]/255;        
 pl1_mesh.FaceAlpha = 0.4;
 pl1_mesh.EdgeAlpha = 0.5;
@@ -37,9 +37,9 @@ set(gca,'XColor', 'none','YColor','none','ZColor','none')
 set(gca,'color','none')
 
 for i = 1: length(vert_py)    
-    set(pl1,'XData',vert_py{i}(:,1),'YData',vert_py{i}(:,2), 'ZData', vert_py{i}(:,3)); % Hand Plot
+%     set(pl1,'XData',vert_py{i}(:,1),'YData',vert_py{i}(:,2), 'ZData', vert_py{i}(:,3)); % Hand Plot
     hold on    
-    set(pl1_mesh, 'vertices', vert_py{i})
+%     set(pl1_mesh, 'vertices', vert_py{i})
     set(pl2,'XData',obj_track{i}(:,1),'YData',obj_track{i}(:,2), 'ZData', obj_track{i}(:,3)); % Object Plot
     num_CS = length(y_cs{i}{1}{1}); % Number of identified contact surfaces
     tmp_p = [];

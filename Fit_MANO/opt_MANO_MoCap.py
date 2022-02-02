@@ -217,11 +217,11 @@ def parms_for_torch(rhm,
         free_vars +=[rhm.betas]
 
     optimizer = LBFGS(free_vars,
-                      lr=0.9e-1,
-                      max_iter=100,
+                      lr=0.5e-1,
+                      max_iter=150,
                       line_search_fn='strong_wolfe',
-                      tolerance_grad=1e-5,
-                      tolerance_change=1e-9)
+                      tolerance_grad=1e-9,
+                      tolerance_change=1e-11)
     optimizer.zero_grad()
     gstep = 0
 

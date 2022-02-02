@@ -5,7 +5,7 @@ clc
 %%%% Call dependencies
 dependencies;
 % load('MT_RH_HKRD_1230 009.mat') % Load the trial info we are trying to evaluate
-load('MT_RH_F413_1440 013.mat') % Load the trial info we are trying to evaluate
+load('MT_RHand_A5C6B22C1EE8D_1130am 007.mat') % Load the trial info we are trying to evaluate
 cs_st = st;
 % cs_st1.plot_traj(); % Plots the trajectory on the VICON system
 % name = 'Test_00006';
@@ -15,7 +15,7 @@ cs_st.save_data(n_obj, name); % Exports the information of the markers of the ob
 cs_st.subjects{n_hand}.build_results(); % Builds all required data for the hand, so that information such as reference axes, is available for use.
 T = readtable(strcat(name, '.csv')); % Reads the previously saved information
 T = T{:,:}; % From table to matrix. This matrix contains the positions of the markers along the whole trajectory.
-ob = 2; % Object we have selected for the experiment
+ob = 11; % Object we have selected for the experiment
 mark_ind = get_mks_ind(ob, markers_pos); % Find corrected marker assignment on the objects (this can be funed according to the user's needs
 t_obj = ObjectInfo(triangulation(Y{ob, 1},  Y{ob, 2} - Y{ob, 2}(mark_ind(1), :))); % Creates a triangulation which is centered on the first point of the mark_ind vector
 y_track = track_object(t_obj, mark_ind, T); % We change the bases from the object frame to a normal coordinate frame, so it can be plot with the hand later on
@@ -25,9 +25,7 @@ n_mks = length(mks); % Number of markers used for the human hand tracking
 name_data_to_py = 'data_to_opt';
 get_frames_opt(n_frames, mks, n_mks, cs_st, n_hand, name_data_to_py); % Creates the required frame file to be used by the python optimization algorithm
 % betas = [0.4394211849484578, 1.5718488752572914, 0.4441326581811165, -3.184784177810678, -2.0533222423773667, -2.7747463926925033, 0.888224485138984, 1.7561999647492048, 4, 0.9774567444995015];
-betas = [0.15496452928836574, -1.258624864877278, 0.8793806490816679, -0.9772090579899397, 0.35669707616799057, -0.09034824091821289, 0.8389581199168163, -2.9711913696757626, 1.6525268795297678, -1.769129375386787];
-
-
+betas = [MT_RH_HKRD_1230 008];
 
 
 % betas = [0.4394211849484578, 1.5718488752572914, 0.4441326581811165, -3.184784177810678, -2.0533222423773667, -2.7747463926925033, 0.888224485138984, 1.7561999647492048, 4, 0.9774567444995015]*-4;
