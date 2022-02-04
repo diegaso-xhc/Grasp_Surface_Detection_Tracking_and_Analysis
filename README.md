@@ -72,7 +72,7 @@ Plots of the contact interaction of the subject in a specified frame. Contact su
 
 ### Grasping of a cylinder
 
-Plots of only object and contact surfaces for grasping analysis. Contact surfaces are visible in red.
+Plots of object along contact surfaces for grasping analysis. Contact surfaces are visible in red.
 
 <p align="center">
   <img src="/Visualizations/grasp_cylinder.png" width="550" />  
