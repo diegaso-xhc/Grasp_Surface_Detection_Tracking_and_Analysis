@@ -12,7 +12,7 @@ for i = 1: length(vert_py)
     cnt = cnt + 1;  
     object{1} = triangulation(Y{ob, 1}, y_track{i});
     hand{1} = triangulation(double(faces_py{i} + 1), vert_py{i});
-    [yf y] = getContactSurfaces(object, hand, th, 'both');
+    [yf y] = getContactSurfaces(object, hand, th, 'near');
     yf_cell{cnt} = yf;
     y_cell{cnt} = y;    
 end
