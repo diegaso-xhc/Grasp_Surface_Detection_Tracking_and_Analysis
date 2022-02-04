@@ -75,7 +75,7 @@ Plots of the contact interaction of the subject in a specified frame. Contact su
 Plots of only object and contact surfaces for grasping analysis. Contact surfaces are visible in red.
 
 <p align="center">
-  <img src="/Visualizations/grasp_cylinder.png" width="650" />  
+  <img src="/Visualizations/grasp_cylinder.png" width="550" />  
 </p>
 
 ### Grasping of a wine glass and a cup
@@ -83,7 +83,7 @@ Plots of only object and contact surfaces for grasping analysis. Contact surface
 Digital representation of the manipulation of a wine glass and a cup.
 
 <p align="center">
-  <img src="/Visualizations/grasp_wine_glass.gif" width="330" />
+  <img src="/Visualizations/grasp_wine_glass.gif" width="340" />
   <img src="/Visualizations/grasp_cup.gif" width="575" />   
 </p>
 
