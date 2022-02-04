@@ -1,14 +1,14 @@
-<div align="center"># Contact-level human hand-object interaction</div>
+# Contact-level human hand-object interaction
 
  
-# Overview of the repostitory
+## Overview of the repostitory
 <div align="justify">
 Humans use their hands to perform a broad set of tasks, some of which require highly dexterous manipulation capabilities. Simulating or reproducing such capabilities is an untractable problem with current technologies. It is crucial, therefore, to develop tools that aim at advancing technological resources for analyzing human manipulation interactions. In this repository, the authors have created an algorithm pipeline, which endows the research community with tools to investigate and analyze personalized human hand-object manipulations at a contact level. Insights resulting of such tools might have contributions in fields ranging from robotics manipulation, to medical rehabilitation, among others. 
 <br />
 <br /> 
 See paper X for reference (currently being reviewed)
 
-# Experimental setup for repository
+## Experimental setup for repository
 
 Although the codes on this repository are easily extendable, it is worth noting that during the development of this code a given fixed setup was used. The setup consists of:
 
@@ -28,7 +28,7 @@ and here
 -->
 </div>
 
-# Examples of hand-object contact level human manipulation
+## Examples of hand-object contact level human manipulation
 
 
 <p align="center">
