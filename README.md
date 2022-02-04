@@ -21,7 +21,7 @@ Here, a tailored human hand motion capture session can be represented virtually,
 
 ## Experimental setup for repository
 
-Although the codes on this repository are easily extendable, it is worth noting that during the development of this code a given fixed setup was used. The setup consists of:
+Although this repository is easily extendable, it is worth noting that during the development of this code a given fixed setup was used. The setup consisted of:
 
 ```
 - VICON motion tracking capture with 16 IR-cameras
@@ -39,8 +39,23 @@ and here
 -->
 </div>
 
-## Examples of hand-object contact level human manipulation
+Nevertheless, the contributions of our work provide tools to extend our results to different setups, provided that changes are made on the pertinent locations. If you are unsure about this, please contact the author at (diego.hidalgo-carvajal@tum.de)
 
+## Contributions
+
+The contributions of this repository can be summarized as follows:
+
+```
+- A library for post processing and visualization of motion capture data --> HMCL_lib
+- A set of purposely selected objects, which guarantee grasping postures variability --> Info_objects
+- Algorithms to track known 3D objects with random marker placements --> Track_object_lib
+- Algorithms for mesh manipulation --> Mesh_Manip_lib
+- Pseudonymized data from trials (saved as Study objects, see HMCL_lib) --> Trials
+- Algorithms to calculate contact surfaces information betwen a hand mesh and an object mesh --> see main
+- Python algorithms to handle the MANO model, including marker position optimization --> fit_MANO (Developed in cooperation with Omid Taheri https://is.mpg.de/person/otaheri)
+```
+
+## Examples of hand-object contact level human manipulation
 
 <p align="center">
    <img src="/Visualizations/vis_1.png" width="850" />
