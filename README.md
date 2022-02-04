@@ -52,7 +52,8 @@ The contributions of this repository can be summarized as follows:
 - Algorithms for mesh manipulation --> Mesh_Manip_lib
 - Pseudonymized data from trials (saved as Study objects, see HMCL_lib) --> Trials
 - Algorithms to calculate contact surfaces information betwen a hand mesh and an object mesh --> see main
-- Python algorithms to handle the MANO model, including marker position optimization --> fit_MANO (Developed in cooperation with Omid Taheri https://is.mpg.de/person/otaheri)
+- Python algorithms to handle the MANO model, including marker position optimization --> fit_MANO (Developed in 
+  cooperation with Omid Taheri https://is.mpg.de/person/otaheri)
 ```
 
 ## Examples of hand-object contact level human manipulation
