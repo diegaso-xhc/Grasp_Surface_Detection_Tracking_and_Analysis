@@ -44,7 +44,7 @@ and here
 </p>
 
 <p align="center">
-   <img src="/Visualizations/framework.gif" width="800" />
+   <img src="/Visualizations/framework.gif" width="850" />
 </p>
 
 
