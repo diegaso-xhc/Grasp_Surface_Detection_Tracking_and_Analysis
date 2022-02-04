@@ -7,11 +7,15 @@ Humans use their hands to perform a broad set of tasks, some of which require hi
 <br />
 <br /> 
 See paper X for reference (currently being reviewed)
-
+<br />
+<br /> 
+This repository allows the reproduction of the following framework:
 <p align="center">
    <img src="/Visualizations/framework.gif" width="970" />
 </p>
 <sup> *Romero, Javier, Dimitrios Tzionas, and Michael J. Black. "Embodied hands: Modeling and capturing hands and bodies together." ACM Transactions on Graphics (ToG) 36.6 (2017): 1-17.</sup>
+<br />
+Here a tailored human hand motion capture session can be represented virtually, by using the .obj/.stl files of the objects being manipulated, the human hand MANO model*, and our algorithms.
 
 ## Experimental setup for repository
 
