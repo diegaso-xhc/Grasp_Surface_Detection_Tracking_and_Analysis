@@ -30,6 +30,13 @@ and here
 
 ## Examples of hand-object contact level human manipulation
 
+<p align="center">
+   <img src="/Visualizations/framework.gif" width="970" />
+</p>
+ * Romero, Javier, Dimitrios Tzionas, and Michael J. Black. "Embodied hands: Modeling and capturing hands and bodies together." ACM Transactions on Graphics (ToG) 36.6 (2017): 1-17.
+![grafik](https://user-images.githubusercontent.com/52799270/152544734-7b6b2fb0-f85d-4fa0-9e13-ab4bb2f73fc6.png)
+
+
 
 <p align="center">
    <img src="/Visualizations/vis_1.png" width="850" />
@@ -41,10 +48,6 @@ and here
 <p align="center">
   <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
   <img src="/Visualizations/grasp_cup.gif" width="605" />   
-</p>
-
-<p align="center">
-   <img src="/Visualizations/framework.gif" width="970" />
 </p>
 
 
