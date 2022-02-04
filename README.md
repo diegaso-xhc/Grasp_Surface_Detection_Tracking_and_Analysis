@@ -27,7 +27,7 @@ Although this repository is easily extendable, it is worth noting that during th
 - VICON motion tracking capture with 16 IR-cameras
 - 12 purposely selected 3D-printed (PLA) objects
 - Artec Eva Lite 3D - Scanner
-- 26 4-mm marker hand setup (see image below) [Omid Taheri](https://is.mpg.de/person/otaheri)
+- 26 4-mm marker hand setup (see image below)
 ```
 <p align="center">
    <img src="/Visualizations/Setup_markers.png" width="400" />
