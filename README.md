@@ -67,7 +67,7 @@ The contributions of this repository can be summarized as follows:
 Plots of the contact interaction of the subject in a specified frame. Contact surfaces are visible in read. 
 
 <p align="center">
-   <img src="/Visualizations/vis_1.png" width="650" />
+   <img src="/Visualizations/Framework_visualization.png" width="650" />
 </p>
 
 ### Grasping of a cylinder
@@ -92,8 +92,7 @@ Digital representation of the manipulation of a wine glass and a cup.
 A generic and a customized hand models were used to calculate the contact surfaces during the human manipulation recording. It can be seen that the hand model parameters play a role on the accuracy of the contact surfaces.
 
 <p align="center">
-  <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
-  <img src="/Visualizations/grasp_cup.gif" width="605" />   
+  <img src="/Visualizations/Contact_surface_diff.PNG" width="360" />  
 </p>
 
 ## License
