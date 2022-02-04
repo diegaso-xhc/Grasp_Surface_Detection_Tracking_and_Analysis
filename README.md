@@ -30,7 +30,7 @@ Although this repository is easily extendable, it is worth noting that during th
 - 26 4-mm marker hand setup (see image below)
 ```
 <p align="center">
-   <img src="/Visualizations/Setup_marker.png" width="400" />
+   <img src="/Visualizations/Setup_markers.png" width="400" />
 </p>
  
 <!---
