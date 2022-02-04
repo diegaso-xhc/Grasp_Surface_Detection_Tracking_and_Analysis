@@ -57,35 +57,45 @@ The contributions of this repository can be summarized as follows:
 - Pseudonymized data from trials (saved as Study objects, see HMCL_lib) --> Trials
 - Algorithms to calculate contact surfaces information betwen a hand mesh and an object mesh --> see main
 - Python algorithms to handle the MANO model, including marker position optimization --> fit_MANO (Developed in 
-  cooperation with [Omid Taheri](https://is.mpg.de/person/otaheri))
+  cooperation with Omid Taheri (https://is.mpg.de/person/otaheri).
 ```
 
 ## Examples of hand-object contact level human manipulation
 
+### Visualization of human hand-object interaction
+
+Plots of the contact interaction of the subject in a specified frame. Contact surfaces are visible in read. 
+
 <p align="center">
-   <img src="/Visualizations/vis_1.png" width="850" />
+   <img src="/Visualizations/vis_1.png" width="650" />
 </p>
 
 ### Grasping of a cylinder
 
-Contact surfaces are visible in red.
+Plots of only object and contact surfaces for grasping analysis. Contact surfaces are visible in red.
 
 <p align="center">
   <img src="/Visualizations/grasp_cylinder.png" width="650" />  
 </p>
-<br /> 
-<br /> 
 
 ### Grasping of a wine glass and a cup
 
-<br /> 
-<br /> 
+Digital representation of the manipulation of a wine glass and a cup.
+
 <p align="center">
   <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
   <img src="/Visualizations/grasp_cup.gif" width="605" />   
 </p>
 
+### Contact surfaces with different hand parameters
 
+A generic and a customized hand models were used to calculate the contact surfaces during the human manipulation recording. It can be seen that the hand model parameters play a role on the accuracy of the contact surfaces.
 
+<p align="center">
+  <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
+  <img src="/Visualizations/grasp_cup.gif" width="605" />   
+</p>
 
+## License
 
+Developed by Diego Hidalgo C. (2021). This repository is intended for research purposes only. If you wish to use any parts of the provided code for commercial purposes, please contact the author at diego.hidalgo-carvajal@tum.de.
