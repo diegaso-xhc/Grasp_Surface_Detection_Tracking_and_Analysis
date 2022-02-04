@@ -2,7 +2,7 @@
 
  
 # Overview of the repostitory
-<div style="text-align: justify">
+<div align="justify">
 Humans use their hands to perform a broad set of tasks, some of which require highly dexterous manipulation capabilities. Simulating or reproducing such capabilities is an untractable problem with current technologies. It is crucial, therefore, to develop tools that aim at advancing technological resources for analyzing human manipulation interactions. In this repository, the authors have created an algorithm pipeline, which endows the research community with tools to investigate and analyze personalized human hand-object manipulations at a contact level. Insights resulting of such tools might have contributions in fields ranging from robotics manipulation, to medical rehabilitation, among others. 
 </div>
 See paper X for reference (currently being reviewed)
@@ -12,10 +12,10 @@ See paper X for reference (currently being reviewed)
 Although the codes on this repository are easily extendable, it is worth noting that during the development of this code a given fixed setup was used. The setup consists of:
 
 ```
-VICON motion tracking capture with 16 IR-cameras
-12 purposely selected 3D-printed (PLA) objects
-Artec Eva Lite 3D - Scanner
-26 4-mm marker hand setup
+* VICON motion tracking capture with 16 IR-cameras
+* 12 purposely selected 3D-printed (PLA) objects
+* Artec Eva Lite 3D - Scanner
+* 26 4-mm marker hand setup
 ```
 <!---
 your comment goes here
