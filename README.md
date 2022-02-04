@@ -83,8 +83,8 @@ Plots of only object and contact surfaces for grasping analysis. Contact surface
 Digital representation of the manipulation of a wine glass and a cup.
 
 <p align="center">
-  <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
-  <img src="/Visualizations/grasp_cup.gif" width="605" />   
+  <img src="/Visualizations/grasp_wine_glass.gif" width="330" />
+  <img src="/Visualizations/grasp_cup.gif" width="575" />   
 </p>
 
 ### Contact surfaces with different hand parameters
