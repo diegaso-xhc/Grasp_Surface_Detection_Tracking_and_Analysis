@@ -43,6 +43,9 @@ and here
   <img src="/Visualizations/grasp_cup.gif" width="605" />   
 </p>
 
+<p align="center">
+   <img src="/Visualizations/framework.gif" width="360" />
+</p>
 
 
 
