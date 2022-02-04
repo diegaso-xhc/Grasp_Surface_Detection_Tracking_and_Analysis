@@ -11,6 +11,7 @@ See paper X for reference (currently being reviewed)
 <br /> 
 Provided that positional motion capture data of a human hand, and of relevant landmarks of objects are available, this repository allows the digital reproduction of the interaction, as it can be seen below:
 <br /> 
+<br /> 
 <p align="center">
    <img src="/Visualizations/framework.gif" width="970" />
 </p>
@@ -40,13 +41,25 @@ and here
 
 ## Examples of hand-object contact level human manipulation
 
+
 <p align="center">
    <img src="/Visualizations/vis_1.png" width="850" />
 </p>
+
+### Grasping of a cylinder
+
+Contact surfaces are visible in red.
+
 <p align="center">
   <img src="/Visualizations/grasp_cylinder.png" width="650" />  
 </p>
+<br /> 
+<br /> 
 
+### Grasping of a wine glass and a cup
+
+<br /> 
+<br /> 
 <p align="center">
   <img src="/Visualizations/grasp_wine_glass.gif" width="360" />
   <img src="/Visualizations/grasp_cup.gif" width="605" />   
