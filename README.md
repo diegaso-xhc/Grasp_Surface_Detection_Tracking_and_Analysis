@@ -11,7 +11,7 @@ See paper X for reference (currently being reviewed)
 <p align="center">
    <img src="/Visualizations/framework.gif" width="970" />
 </p>
-#### * Romero, Javier, Dimitrios Tzionas, and Michael J. Black. "Embodied hands: Modeling and capturing hands and bodies together." ACM Transactions on Graphics (ToG) 36.6 (2017): 1-17.
+<sup> *Romero, Javier, Dimitrios Tzionas, and Michael J. Black. "Embodied hands: Modeling and capturing hands and bodies together." ACM Transactions on Graphics (ToG) 36.6 (2017): 1-17.</sup>
 
 ## Experimental setup for repository
 
