@@ -8,6 +8,11 @@ Humans use their hands to perform a broad set of tasks, some of which require hi
 <br /> 
 See paper X for reference (currently being reviewed)
 
+<p align="center">
+   <img src="/Visualizations/framework.gif" width="970" />
+</p>
+#### * Romero, Javier, Dimitrios Tzionas, and Michael J. Black. "Embodied hands: Modeling and capturing hands and bodies together." ACM Transactions on Graphics (ToG) 36.6 (2017): 1-17.
+
 ## Experimental setup for repository
 
 Although the codes on this repository are easily extendable, it is worth noting that during the development of this code a given fixed setup was used. The setup consists of:
@@ -30,10 +35,7 @@ and here
 
 ## Examples of hand-object contact level human manipulation
 
-<p align="center">
-   <img src="/Visualizations/framework.gif" width="970" />
-</p>
- * Romero, Javier, Dimitrios Tzionas, and Michael J. Black. "Embodied hands: Modeling and capturing hands and bodies together." ACM Transactions on Graphics (ToG) 36.6 (2017): 1-17.
+
 
 <p align="center">
    <img src="/Visualizations/vis_1.png" width="850" />
