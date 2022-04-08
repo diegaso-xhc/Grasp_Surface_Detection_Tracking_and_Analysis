@@ -256,6 +256,7 @@ def parms_for_torch(rhm,
 if __name__== '__main__':
 
     from omegaconf import OmegaConf
+    import cProfile, pstats
 
     parser = argparse.ArgumentParser(description='Fitting markers HMCLab recordings')
 
@@ -303,5 +304,15 @@ if __name__== '__main__':
     }
 
     cfg = OmegaConf.create(cfg)
+    #fitting(cfg)
+
+    # These lines were added to get the profiling of the code
+    pr = cProfile.Profile()
+    pr.enable()
     fitting(cfg)
+    pr.disable()
+    stats = pstats.Stats(pr)
+    stats.sort_stats(pstats.SortKey.TIME)
+    stats.print_stats()
+    stats.dump_stats(filename='needs_profiling.prof')
 
