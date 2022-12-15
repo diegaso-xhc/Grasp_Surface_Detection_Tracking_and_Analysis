@@ -51,7 +51,7 @@ def vis_hand(frame, mvs):
         # mvs[0][0].set_titlebar(message)
         with torch.no_grad():
             mvs[0][0].set_static_meshes([r_spheres, r_spheres_opt]  , blocking=True)
-            mvs[0][0].set_dynamic_meshes([Mesh(v=rh_out.vertices.cpu().numpy().squeeze(), f=rhm.faces, vc=name_to_rgb['pink'])],  blocking=True)
+            mvs[0][0].set_dynamic_meshes([Mesh(v=rh_out.vertices.cpu().detach().numpy().squeeze(), f=rhm.faces, vc=name_to_rgb['pink'])],  blocking=True)
             mvs[0][0].set_static_lines([lines_r])
             mvs[0][1].set_static_meshes([r_spheres])
             # time.sleep(.1)
@@ -83,7 +83,7 @@ def ik_fit(weights,
 
         opt_objs = {k: opt_objs[k] * v for k, v in weights.items()}
 
-        loss_total = torch.sum(torch.stack([torch.sum(v.view(v.shape[0], -1), dim=1).mean() for v in opt_objs.values()]))
+        loss_total = torch.sum(torch.stack([(torch.sum(v.view(v.shape[0], -1), dim=1).mean()).to(torch.double) for v in opt_objs.values()]))
 
         if backward:
             loss_total.backward(create_graph=create_graph)
