@@ -21,6 +21,7 @@ from scipy import io
 use_cuda = torch.cuda.is_available()
 device = torch.device("cuda" if use_cuda else "cpu")
 
+import trimesh
 def vis_hand(frame, mvs):
     print( 'Fitting frame:  %d'%frame)
 
@@ -185,8 +186,23 @@ def fitting(cfg):
         if cnt == 0:
             out_v = []
             out_f = []
-        out_v.append(rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000)
-        out_f.append(rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray))
+
+        if fidx == cfg.fr_end:
+            tmp_v = rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000
+            tmp_f = rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray)
+            remeshed_v, remeshed_f = trimesh.remesh.subdivide_to_size(tmp_v, tmp_f, 5.0, max_iter=10, return_index=False)
+            out_v.append(remeshed_v)
+            out_f.append(remeshed_f)
+            # out_v.append(rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000)
+            # out_f.append(rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray))
+        else:
+            tmp_v = rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000
+            tmp_f = rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray)
+            remeshed_v, remeshed_f = trimesh.remesh.subdivide_to_size(tmp_v, tmp_f, 5.0, max_iter=10, return_index=False)
+            out_v.append(remeshed_v)
+            out_f.append(remeshed_f)
+            #out_v.append(rhm.hand_meshes(rh_output)[0].vertices.view(np.ndarray) * 1000)
+            #out_f.append(rhm.hand_meshes(rh_output)[0].faces.view(np.ndarray))
         print( 'frame %d / %d,  took %f seconds' % (fidx, bs ,time.time() - start))
 
         cnt += 1
@@ -217,11 +233,13 @@ def parms_for_torch(rhm,
         free_vars +=[rhm.betas]
 
     optimizer = LBFGS(free_vars,
-                      lr=0.5e-1,
+                      lr=0.2e-1,
                       max_iter=150,
                       line_search_fn='strong_wolfe',
-                      tolerance_grad=1e-9,
-                      tolerance_change=1e-11)
+                      tolerance_grad=1e-19,
+                      tolerance_change=1e-19)
+                      #tolerance_grad=1e-11,
+                      #tolerance_change=1e-12)
     optimizer.zero_grad()
     gstep = 0
 
@@ -238,11 +256,13 @@ def parms_for_torch(rhm,
         free_vars +=[rhm.betas]
 
     optimizer = LBFGS(free_vars,
-                      lr=1.5e-1,
+                      lr=0.2e-1,
                       max_iter=80,
                       line_search_fn='strong_wolfe',
-                      tolerance_grad=0.5e-7,
-                      tolerance_change=2e-6)
+                      tolerance_grad=1e-19,
+                      tolerance_change=1e-19)
+                      #tolerance_grad=0.5e-7,
+                      #tolerance_change=2e-6)
     optimizer.zero_grad()
 
     for w in [{'data_r': 10., 'betas_r': 10, }]:
@@ -287,11 +307,11 @@ if __name__== '__main__':
         'optimize_betas' : False, # his allows external control of the betas vector (i.e. shape of the hand model)
         'n_pca_comps' : 45,
 
-        'lhm_path' : './Fit_MANO/mano/MANO_LEFT.pkl',
-        'rhm_path' : './Fit_MANO/mano/MANO_RIGHT.pkl',
+        'lhm_path' : '/home/diegoubuntu/Documents/Ab_2022/Simulation/human_hand/Contact-level-human-manipulation/Fit_MANO/mano/MANO_LEFT.pkl',
+        'rhm_path' : '/home/diegoubuntu/Documents/Ab_2022/Simulation/human_hand/Contact-level-human-manipulation/Fit_MANO/mano/MANO_RIGHT.pkl',
 
-        'marker_settings' : './Fit_MANO/config/markers_setting.json',
-        'marker_labels': './Fit_MANO/data/markers.mat',
+        'marker_settings' : '/home/diegoubuntu/Documents/Ab_2022/Simulation/human_hand/Contact-level-human-manipulation/Fit_MANO/config/markers_setting.json',
+        'marker_labels': '/home/diegoubuntu/Documents/Ab_2022/Simulation/human_hand/Contact-level-human-manipulation/Fit_MANO/data/markers.mat',
 
         'verbose': False,
 
@@ -304,8 +324,9 @@ if __name__== '__main__':
     }
 
     cfg = OmegaConf.create(cfg)
-    #fitting(cfg)
+    fitting(cfg)
 
+"""
     # These lines were added to get the profiling of the code
     pr = cProfile.Profile()
     pr.enable()
@@ -315,4 +336,4 @@ if __name__== '__main__':
     stats.sort_stats(pstats.SortKey.TIME)
     stats.print_stats()
     stats.dump_stats(filename='needs_profiling.prof')
-
+"""

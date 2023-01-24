@@ -17,6 +17,8 @@ for i = 1: length(vert_py)
     y_cell{cnt} = y;    
 end
 
+
+
 % load('verts_opt_V2_nob.mat')
 % load('faces_opt_V2_nob.mat')
 % 

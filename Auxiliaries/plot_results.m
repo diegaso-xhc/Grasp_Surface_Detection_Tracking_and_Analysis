@@ -10,7 +10,7 @@ function h = plot_results(vert_py, faces_py, obj_track, y_cs, fr_i, options)
 % embedded in the length of the other inputs
 % options is a boolean vector that says what to plot [hand, hand_mesh, object, contact_surface]
 
-figure;
+figure(1);
 pl1 = plot3(NaN,NaN,NaN, '.', 'Color', [0, 0, 255]/255, 'MarkerSize', 5); % Plots the vertices of the hand meshes
 hold on
 pl2 = plot3(NaN,NaN,NaN, '.', 'MarkerSize', 1, 'Color', [0.32, 0.64, 0.74]); % Plots the object's trajectory

@@ -248,8 +248,8 @@ if __name__== '__main__':
         'optimize_betas' : False,
         'n_pca_comps' : 45,
 
-        'lhm_path' : './mano/MANO_LEFT.pkl',
-        'rhm_path' : './mano/MANO_RIGHT.pkl',
+        'lhm_path' : '/home/diegoubuntu/Documents/Ab_2022/Simulation/human_hand/Contact-level-human-manipulation/Fit_MANO/mano/MANO_LEFT.pkl',
+        'rhm_path' : '/home/diegoubuntu/Documents/Ab_2022/Simulation/human_hand/Contact-level-human-manipulation/Fit_MANO/mano/MANO_RIGHT.pkl',
 
         'marker_settings' : 'config/markers_setting.json',
         'marker_labels': 'data/markers.mat',

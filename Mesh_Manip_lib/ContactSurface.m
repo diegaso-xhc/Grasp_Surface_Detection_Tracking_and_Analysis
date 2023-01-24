@@ -9,7 +9,8 @@ classdef ContactSurface < handle
     end    
     methods
         function obj = ContactSurface(o, t)
-            obj.ob = o;
+%             obj.ob = o;
+            obj.ob = [];
             obj.p = o.Points(t, :);
             obj.t = t;
             obj.vnorm = vertexNormal(o, t');

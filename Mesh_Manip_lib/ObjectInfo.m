@@ -15,7 +15,7 @@ classdef ObjectInfo < handle
                 hold on
                 h = trimesh(obj.ob);
                 h.EdgeColor = col_vec;        
-                h.FaceAlpha = 1;
+                h.FaceAlpha = 0.6;
                 h.EdgeAlpha = 0.8;
                 axis('equal')
                 hold off
@@ -25,7 +25,7 @@ classdef ObjectInfo < handle
             else
                 h = trimesh(obj.ob);
                 h.EdgeColor = col_vec;
-                h.FaceAlpha = 1;
+                h.FaceAlpha = 0.6;
                 h.EdgeAlpha = 0.8;
                 axis('equal')
                 hold off
