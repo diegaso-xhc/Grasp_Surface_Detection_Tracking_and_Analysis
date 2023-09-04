@@ -6,7 +6,9 @@
 Humans use their hands to perform a broad set of tasks, some of which require highly dexterous manipulation capabilities. Simulating or reproducing such capabilities is an untractable problem with current technologies. It is crucial, therefore, to develop tools that aim at advancing technological resources for analyzing human manipulation interactions. In this repository, the authors have created an algorithm pipeline, which endows the research community with tools to investigate and analyze personalized human hand-object manipulations at a contact level. Insights resulting of such tools might have contributions in fields ranging from robotics manipulation, to medical rehabilitation, among others. 
 <br />
 <br /> 
-The paper <b>workFrom Human Hand to Grasp Surface Detection, Tracking & Analysis</b> is currently in its final publication state. You can find a video summarizing the proposed methodology ![here](https://www.youtube.com/watch?v=LMdajths3Sw).
+The paper <b>From Human Hand to Grasp Surface Detection, Tracking & Analysis</b> is currently in its final publication state. You can find a video summarizing the proposed methodology 
+<a href="https://www.youtube.com/watch?v=LMdajths3Sw">link text</a>
+![here](https://www.youtube.com/watch?v=LMdajths3Sw).
 <br />
 <br /> 
 Provided that positional motion capture data of a human hand, and of relevant landmarks of objects are available, this repository allows the digital reproduction of the interaction, as it can be seen below:
