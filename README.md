@@ -1,4 +1,4 @@
-# Contact-level human hand-object interaction
+# Grasp Surface Detection, Tracking & Analysis
 
  
 ## Overview of the repostitory
