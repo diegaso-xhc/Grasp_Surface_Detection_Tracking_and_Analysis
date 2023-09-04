@@ -12,13 +12,13 @@ Our paper <b>From Human Hand to Grasp Surface Detection, Tracking & Analysis</b>
 Provided that positional motion capture data of a human hand, and of relevant landmarks of objects are available, this repository allows the digital reproduction of the interaction, as it can be seen below:
 <br /> 
 <br /> 
-<p align="center">
+ <p align="center">
    <img src="/Visualizations/framework.gif" width="970" />
 </p>
 <sup> *Romero, Javier, Dimitrios Tzionas, and Michael J. Black. "Embodied hands: Modeling and capturing hands and bodies together." ACM Transactions on Graphics (ToG) 36.6 (2017): 1-17.</sup>
 <br />
-Here, a tailored human hand motion capture session can be represented virtually, via the usage of .obj/.stl files of the objects being manipulated, the human hand MANO model*, and the author's algorithms.
-
+Here, a tailored human hand motion capture session can be represented virtually, via the usage of .obj/.stl files of the objects being manipulated, the human hand MANO model*, and this repository's algorithms.
+ 
 ## Experimental setup for repository
 
 Although this repository is easily extendable, it is worth noting that during the development of this code a given fixed setup was used. The setup consisted of:
@@ -29,6 +29,7 @@ Although this repository is easily extendable, it is worth noting that during th
 - Artec Eva Lite 3D - Scanner
 - 26 4-mm marker hand setup (see image below)
 ```
+
 <p align="center">
    <img src="/Visualizations/Setup_markers.png" width="400" />
 </p>
