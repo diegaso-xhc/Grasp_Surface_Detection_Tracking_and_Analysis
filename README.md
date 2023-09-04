@@ -44,7 +44,7 @@ and here
 -->
 </div>
 
-Nevertheless, the contributions of our work provide tools to extend our results to different setups, provided that changes are made on the pertinent locations. If you are unsure about this, please contact the author at (diego.hidalgo-carvajal@tum.de)
+Nevertheless, the contributions of our work provide tools to extend our results to different setups, provided that changes are made on the pertinent locations. If you are not sure how to do so, please contact the author at (diego.hidalgo-carvajal@tum.de)
 
 ## Contributions
 
