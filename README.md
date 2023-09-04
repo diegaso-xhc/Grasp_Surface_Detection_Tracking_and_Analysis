@@ -44,7 +44,7 @@ and here
 -->
 </div>
 
-Nevertheless, the contributions of our work provide tools to extend our results to different setups, provided that changes are made on the pertinent locations. If you are not sure how to do so, please contact the author at (diego.hidalgo-carvajal@tum.de)
+Nevertheless, the contributions of our work provide tools to extend our results to different setups, provided that changes are made on the pertinent locations. If you are not sure how to do so, please contact the author (see details below).
 
 ## Contributions
 
@@ -98,4 +98,4 @@ A generic and a customized hand models were used to calculate the contact surfac
 
 ## License
 
-Developed by Diego Hidalgo C. (2021). This repository is intended for research purposes only. If you wish to use any parts of the provided code for commercial purposes, please contact the author at diego.hidalgo-carvajal@tum.de.
+Developed by Diego Hidalgo C. (2021). This repository is intended for research purposes only. If you wish to use any parts of the provided code for commercial purposes, please contact the author at hidalgocdiego@gmail.com.
